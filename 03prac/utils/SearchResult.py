@@ -11,4 +11,4 @@ class SearchResult:
         return self.item["Name"]
 
     def __str__(self):
-        return f"{self.symbol} : {self.name}"
+        return f"{self.symbol}: {self.name}"
