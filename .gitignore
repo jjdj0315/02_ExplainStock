@@ -128,3 +128,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+comments.db
+test.ipynb
+.gitignore
