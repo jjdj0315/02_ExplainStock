@@ -1,3 +1,4 @@
+#load_stock
 import pandas as pd
 import yfinance as yf
 

@@ -1,11 +1,12 @@
+#app
 import streamlit as st
 from utils.search import stock_search
 from utils.SearchResult import SearchResult
 from utils.load_stock import Stock
-from utils.create_report import AI_report, cache_AI_report
-
+from utils.create_report import  cache_AI_report
+from utils.comment import create_connection, create_table, insert_comment, get_all_comments
 import plotly.graph_objects as go
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 # Set the page title
@@ -77,3 +78,19 @@ with tab2:
             data = cache_AI_report(selected.symbol)
             st.success("Done")
         st.write(data)
+
+with tab3:
+    st.header("종목 토론실")
+    conn = create_connection()
+    create_table(conn)
+
+    for comment in get_all_comments(conn):
+        comment_time, comment_text = comment
+        st.write(f"{comment_time}: {comment_text}")
+
+    # 앞에서부터 그리기 때문에 댓글 입력창이 위에 나옴
+    new_comment = st.text_area("댓글을 입력하세요")
+    if st.button("댓글 작성"):
+        insert_comment(conn, f"{selected.name} - {new_comment}")
+        st.success("댓글이 작성되었습니다")
+        st.rerun()

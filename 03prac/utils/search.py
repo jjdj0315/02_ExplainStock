@@ -1,3 +1,4 @@
+#search
 import meilisearch
 import pandas as pd
 

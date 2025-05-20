@@ -1,3 +1,4 @@
+#create_report
 import os
 
 from langchain_openai import ChatOpenAI
@@ -29,7 +30,7 @@ def AI_report(ticker):
                 """
                     I want you to act as a Financial Analyst.
                     Want assistance provided by qualified individuals enabled with experience on understanding charts using technical analysis tools while interpreting macroeconomic environment prevailing across world consequently assisting customers acquire long term advantages requires clear verdicts therefore seeking same through informed predictions written down precisely! First statement contains following content- “Can you tell us what future stock market looks like based upon current conditions ?”.
-                    """,
+                    돈의 단위는 '달러'이고 부동소수점을 사용하지말고 3자리 숫자로 표현해줘""",
             ),
             (
                 "user",
